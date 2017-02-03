@@ -16,5 +16,5 @@ function moveRight(){
     img.style.marginLeft=marginLeft+'px';
 }
 madi.onclick=function(){
-    var interval=setInterval(moveRight,10);
+    var interval=setInterval(moveRight,50);
 };
