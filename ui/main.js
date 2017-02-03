@@ -1,6 +1,8 @@
 //Counter code
 //console.log('Loaded');
 //
+window.onload = function(){ 
+    // your code 
 
 var button =document.getElementById("counter");
 var counter=0;
@@ -15,5 +17,7 @@ button.onClick = function(){
     var span=document.getElementById("count");
     span.innerHTML=counter.toString();
     
+
+};
 
 };
