@@ -1,8 +1,7 @@
 //Counter code
 //console.log('Loaded');
 //
-//window.onload = function()
-//{ 
+window.onload = function(){ 
     // your code 
 
 var button =document.getElementById("counter");
@@ -29,4 +28,4 @@ button.onclick = function(){
 
 };
 
-//};
+};
