@@ -1,3 +1,8 @@
+//counter code
+var button = document.getElementById('counter');
+
+button.onclick = function() {
+
 //create a request object
 var request = new XMLHttpRequest();
 
@@ -16,10 +21,9 @@ request.onreadystatechange = function(){
     }
 
        //Not done
-
+};
 
 //make request
-request.open('GET', 'http://sandeepsharma-kgp.imad.hasura-app.io/counter',true);
+request.open('GET', 'http://manu777.imad.hasura-app.io/counter',true);
 request.send(null);
-
 };
