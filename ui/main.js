@@ -16,7 +16,7 @@ request.onreadystatechange = function(){
     }
 
        //Not done
-};
+
 
 //make request
 request.open('GET', 'http://sandeepsharma-kgp.imad.hasura-app.io/counter',true);
