@@ -40,6 +40,6 @@ submit.onclick=function(){
     for (var i=0;i<name.length;i++){
         list+='<li>'+name+'</li>';
     }
-    var ul=document.getElemenentById('namelist');
+    var ul=document.getElementById('namelist');
     ul.innerHTML=list;
 };
