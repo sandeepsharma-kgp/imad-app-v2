@@ -32,6 +32,8 @@ submit.onclick=function(){
     //make a request to the server and send the name
     //Capture a list of name and render it is a list
     //create a request object
+    var nameInput=document.getElementById('name');
+    var named=nameInput.value;
     var request = new XMLHttpRequest();
     //capture the response and store it in a variable
     request.onreadystatechange = function(){
@@ -50,8 +52,7 @@ submit.onclick=function(){
         }
            //Not done
     };
-    var nameInput=document.getElementById('name');
-    var named=nameInput.value;
+    
     //make request
     request.open('GET', 'http://sandeepsharma-kgp.imad.hasura-app.io/submit-name?name='+name,true);
     request.send(null);
