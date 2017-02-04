@@ -88,6 +88,18 @@ app.get('/counter' , function(req,res){
     res.send(counter.toString());
 });
 
+var names=[];
+app.get('/submit-name', function (req, res) { //YRL :/submit-nmae/name-xxxx
+  //Get the name from the request
+  var name=req.params.name;
+  
+  names.push(name);
+  //JSON: Javascript notation
+  
+  
+  
+  res.send(JSON.stringify(names));
+});
 
 app.get('/:articleName',function(req,res){
     //articleName==article-one
@@ -111,18 +123,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 
-var names=[];
-app.get('/submit-name', function (req, res) { //YRL :/submit-nmae/name-xxxx
-  //Get the name from the request
-  var name=req.params.name;
-  
-  names.push(name);
-  //JSON: Javascript notation
-  
-  
-  
-  res.send(JSON.stringify(names));
-});
+
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
