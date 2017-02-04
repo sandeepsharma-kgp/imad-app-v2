@@ -30,7 +30,7 @@ request.send(null);
 
 //Submit Name
 var nameInput=document.getElementById('name');
-var names=nameInput.value;
+var named=nameInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
     //make a request to the server and send the name
@@ -38,8 +38,8 @@ submit.onclick=function(){
     console.log('Submit');
     var names=['name1','name2','name3','name4'];
     var list='';
-    for (var i=0;i<name.length;i++){
-        list+='<li>'+name+'</li>';
+    for (var i=0;i<names.length;i++){
+        list+='<li>'+names+'</li>';
     }
     var ul=document.getElementById('namelist');
     ul.innerHTML=list;
