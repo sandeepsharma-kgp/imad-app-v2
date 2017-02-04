@@ -35,7 +35,7 @@ var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
     //make a request to the server and send the name
     //Capture a list of name and render it is a list
-    cosole.log('Submit');
+    console.log('Submit');
     var names=['name1','name2','name3','name4'];
     var list='';
     for (var i=0;i<name.length;i++){
