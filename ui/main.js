@@ -33,7 +33,7 @@ submit.onclick=function(){
     //Capture a list of name and render it is a list
     //create a request object
     var nameInput=document.getElementById('name');
-    var named=nameInput.value;
+    var name=nameInput.value;
     var request = new XMLHttpRequest();
     //capture the response and store it in a variable
     request.onreadystatechange = function(){
