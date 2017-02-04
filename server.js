@@ -114,7 +114,7 @@ app.get('/ui/madi.png', function (req, res) {
 var names=[];
 app.get('/submit-name/:name', function (req, res) {
   //Get the name from the request
-  var names=req.parmas.name;
+  var name=req.parmas.name;
   
   names.push(name);
   //JSON: Javascript notation
