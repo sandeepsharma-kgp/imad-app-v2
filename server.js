@@ -7,7 +7,8 @@ var config={
     user:'sandeepsharma-kgp',
     database:'sandeepsharma-kgp',
     host:'5432',
-    password:'db-sandeepsharma-kgp-59950',
+    password:process.env.DB_PASSWORD
+    //'db-sandeepsharma-kgp-59950',
 };
 
 var app = express();
