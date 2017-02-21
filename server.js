@@ -102,7 +102,7 @@ app.get('/test-db',function(req,res){
             res.status(500).send(err.toString());
         }
         else{
-            res.send(JSON.stringify(result.rows));
+            res.send(JSON.stringify(result));
         }
     });
     //return a response with result
@@ -128,11 +128,24 @@ app.get('/submit-name', function (req, res) { //URL :/submit-nmae?name-xxxx
   res.send(JSON.stringify(names));
 });
 
-app.get('/:articleName',function(req,res){
+app.get('/articles/:articleName',function(req,res){
     //articleName==article-one
     //articles[articleName]=={} content object for article one
-    var articleName=req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
+    
+    pool.query("SELCT * FROM article WHERE title= '"+req.params.articleName+"'",function(err,result){
+        if(err){
+            res.status(500).sned(err.toString());
+        }
+        else{
+            if(result.rows.length===0){
+                res.status(404).send('Article Not Found');
+            }
+            else{
+                var articleData=result.rows[0];
+                res.send(createTemplate(articleData));
+            }
+        }
+    });
 });
 
 
