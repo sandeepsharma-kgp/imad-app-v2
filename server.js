@@ -100,7 +100,7 @@ app.get('/test-db',function(req,res){
             res.status(500).send(err.toString());
         }
         else{
-            res.sned(JSON.stringfy(result));
+            res.sned(JSON.stringify(result));
         }
     });
     //return a response with result
