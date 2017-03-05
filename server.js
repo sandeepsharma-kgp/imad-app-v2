@@ -54,13 +54,21 @@ function createTemplate(data){
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  
 });
 
 
 function hash(input,salt){
     //How do we create hash?
     var hashed=crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
-    return hashed.toString('hex');
+    return ["pbkdf2Sync","10000",salt,hashed.toString('hex')].join("$");
+    
+    //same algo => same hashed value for same input
+    //algo=md5
+    //"password"=>afsdfgtrdbcvsgdgbre4eg6
+    //"password-this-is-some-random-string"=>sdffdgvsertdvsdddffggfbdvfvsfgdbvfv
+    //salt value makes password unique which can't be reverse engineered
+    //10k hash times will increase the security
 }
 
 app.get('/hash/:input',function(req,res){
