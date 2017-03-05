@@ -56,6 +56,18 @@ app.get('/', function (req, res) {
 });
 
 
+function hash(input,salt){
+    //How do we create hash
+    var hashed=crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512');
+    return hashed.toString('hex');
+}
+
+app.get('/hash/:input',function(req,res){
+   var hashedString=hash(req.params.input,'this-is-some-random-string');
+   
+});
+
+
 var pool=new Pool(config);
 
 app.get('/test-db',function(req,res){
