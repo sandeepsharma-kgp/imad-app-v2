@@ -1,36 +1,30 @@
-<!doctype html>
-<html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    
+//submit username/password to login
+var submit=document.getElementById('submit_btn');
 
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="center">
-                <img id="madi" src="https://pbs.twimg.com/profile_images/542953769734897664/qMz_h255.jpeg" class="img-medium"/>
-            </div>
-            <h3>Personal </h3>
-            <dev>
-                Hi my name is Sandeep
-            </dev>
-            <hr/>
-            <h3>Professional</h3>
-            <div>
-                I study at IIT KGP.
-            </div>
-            <hr/>
-            <h3>Login</h3>
-            <div>
-                <input type="text" id="username" placeholder="usernmae" />
-                <input type="password" id="password"  />
-                <input type="submit" id="subit_btn" />
-            </div>
-            <div class="footer">
-            </div>
-        </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
-    </body>
-</html>
+submit.onclick=function(){
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.Done){
+            if(request.status===200){
+                alert('Logged in succesfully');
+            } else if(request.status===403){
+                    alert('Username/ Password is incorrec');   
+            } else if(request.status===500){
+                alert('Something went wrong on the server');
+            }
+            
+        }
+    };
+    
+    //Make the request
+    
+    var usernmae=document.getElementById('username').value
+    var password=document.getElementById('password').value
+    console.log(username);
+    console.log(password);
+    request.open('POST','http://sandeepsharma-kgp.imad.hasura-app.io/login',true);
+    request.setRequestheader('Content-Type','application/json');
+    request.send(JSON.stringify({username: username,password: password}));
+    
+};
