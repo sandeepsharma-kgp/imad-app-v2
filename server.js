@@ -10,7 +10,7 @@ var config={
     host:'db.imad.hasura-app.io',
     port:'5432',
     password:'db-sandeepsharma-kgp-59950'
-    //process.env.DB_PASSWORD
+    // process.env.DB_PASSWORD
     //'db-sandeepsharma-kgp-59950',
 };
 
