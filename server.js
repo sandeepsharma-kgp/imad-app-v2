@@ -81,6 +81,7 @@ app.get('/hash/:input',function(req,res){
 
 app.post('/create-user',function(req,res){ // to increase security
    //username , password
+   //{"username:","tanmai","password:","password"}
    // json request (assuming)
    var username = req.body.usernmae;
    var password=req.body.password;
