@@ -115,7 +115,7 @@ app.post('/login',function(req,res){ // to increase security
             } else {
                 //watch the password
                 var dbString=result.rows[0].password;
-                var salt=dbStrig.split('$')[2];
+                var salt=dbString.split('$')[2];
                 var hashedPassword=hash(password,salt);
                 if(hasedPassword===dbString){
                     res.send('credentials correct!!');
