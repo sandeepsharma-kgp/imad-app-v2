@@ -18,7 +18,7 @@ var config={
 
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyParser.json); // in case the content in json read it using bodyParser
+app.use(bodyParser.json()); // in case the content in json read it using bodyParser
 
 function createTemplate(data){
         var title=data.title;
