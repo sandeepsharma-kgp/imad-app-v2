@@ -83,7 +83,7 @@ app.post('/create-user',function(req,res){ // to increase security
    //username , password
    //{"username": "tanmai","password": "password"}
    // json request (assuming)
-   var username = req.body.usernmae;
+   var username = req.body.username;
    var password=req.body.password;
    
    var salt=crypto.randomBytes(128).toString('hex');
