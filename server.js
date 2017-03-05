@@ -91,6 +91,9 @@ app.post('/create-user',function(req,res){ // to increase security
    pool.query('INSERT INTO "user"(username , password) VALUES ($1,$2)',[username,dbString],function(err,result){
         if(err){
             res.status(500).send(err.toString());
+            
+            //set a session
+            
         }
         else{
             res.send('User successfully created: '+username);
