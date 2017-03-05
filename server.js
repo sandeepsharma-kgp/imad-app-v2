@@ -105,7 +105,7 @@ app.post('/login',function(req,res){ // to increase security
    var username = req.body.username;
    var password=req.body.password;
    
-   pool.query('SELECT * from "user" username=$1',[username],function(err,result){
+   pool.query('SELECT * from "user" WHERE username=$1',[username],function(err,result){
         if(err){
             res.status(500).send(err.toString());
         }
