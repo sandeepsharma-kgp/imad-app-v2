@@ -98,10 +98,7 @@ app.post('/create-user',function(req,res){ // to increase security
    });
 });
 
-app.post('/login',function(req,res){ // to increase security
-   //username , password
-   //{"username": "tanmai","password": "password"}
-   // json request (assuming)
+app.post('/login',function(req,res){ 
    var username = req.body.username;
    var password=req.body.password;
    
@@ -120,7 +117,7 @@ app.post('/login',function(req,res){ // to increase security
                 if(hasedPassword===dbString){
                     res.send('credentials correct!!');
                 } else {
-                    res.send(403).sed('username/password is invalid!');
+                    res.send(403).send('username/password is invalid!');
                 }
             }
         }
