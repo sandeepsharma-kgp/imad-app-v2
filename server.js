@@ -3,6 +3,8 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var crypto=require('crypto');
+var bodyParser=require('body-parser');
+
 
 var config={
     user:'sandeepsharma-kgp',
@@ -16,6 +18,7 @@ var config={
 
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json); // in case the content in json read it using bodyParser
 
 function createTemplate(data){
         var title=data.title;
@@ -76,8 +79,12 @@ app.get('/hash/:input',function(req,res){
    res.send(hashedString);
 });
 
-app.get('/create-user',function(req,res){ // this will be insecure
+app.post('/create-user',function(req,res){ // to increase security
    //username , password
+   // json request (assuming)
+   var username = req.body.usernmae;
+   var password=req.body.password;
+   
    var salt=crypto.getRandomBytes(128).toString('hex');
    var dbStrng=hash(password,salt);
    pool.query('INSERT INTO "user"(username , password) VALUES ($1,$2)',[username,dbString],function(err,result){
