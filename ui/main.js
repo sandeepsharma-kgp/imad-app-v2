@@ -1,63 +1,36 @@
-//counter code
-var button = document.getElementById('counter');
-
-button.onclick = function() {
-
-//create a request object
-var request = new XMLHttpRequest();
-
-
-//capture the response and store it in a variable
-request.onreadystatechange = function(){
-    if(request.readyState === XMLHttpRequest.DONE){
-        //Take some action
-      if(request.status === 200){
-         var counter = request.responseText;
-         var span = document.getElementById('count');
-         span.innerHTML = counter.toString();
-      }
-    }
-       //Not done
-};
-
-//make request
-request.open('GET', 'http://sandeepsharma-kgp.imad.hasura-app.io/counter',true);
-request.send(null);
-};
-
-//Submit Name
-
-var submit=document.getElementById('submit_btn');
-submit.onclick=function(){
-    //make a request to the server and send the name
-    //Capture a list of name and render it is a list
-    //create a request object
-    var nameInput=document.getElementById('name');
-    var name=nameInput.value;
-    var request = new XMLHttpRequest();
-    //capture the response and store it in a variable
-    request.onreadystatechange = function(){
-        if(request.readyState === XMLHttpRequest.DONE){
-            //Take some action
-          if(request.status === 200){
-                var names=request.responseText;
-                names=JSON.parse(names);
-                var list='';
-                for (var i=0;i<names.length;i++){
-                    list+='<li>'+names[i]+'</li>';
-                }
-                var ul=document.getElementById('namelist');
-                ul.innerHTML=list;
-          }
-        }
-           //Not done
-    };
+<!doctype html>
+<html>
+    <head>
+        <link href="/ui/style.css" rel="stylesheet" />
     
-    //make request
-    request.open('GET', 'http://sandeepsharma-kgp.imad.hasura-app.io/submit-name?name='+name,true);
-    request.send(null);
 
-    
-    
-    
-};
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="center">
+                <img id="madi" src="https://pbs.twimg.com/profile_images/542953769734897664/qMz_h255.jpeg" class="img-medium"/>
+            </div>
+            <h3>Personal </h3>
+            <dev>
+                Hi my name is Sandeep
+            </dev>
+            <hr/>
+            <h3>Professional</h3>
+            <div>
+                I study at IIT KGP.
+            </div>
+            <hr/>
+            <h3>Login</h3>
+            <div>
+                <input type="text" id="username" placeholder="usernmae" />
+                <input type="password" id="password"  />
+                <input type="submit" id="subit_btn" />
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+        <script type="text/javascript" src="/ui/main.js">
+        </script>
+    </body>
+</html>
