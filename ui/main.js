@@ -19,7 +19,7 @@ submit.onclick=function(){
     
     //Make the request
     
-    var usernmae=document.getElementById('username').value;
+    var username=document.getElementById('username').value;
     var password=document.getElementById('password').value;
     console.log(username);
     console.log(password);
