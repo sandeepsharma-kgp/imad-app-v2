@@ -114,6 +114,7 @@ app.post('/login',function(req,res){
             } else {
                 //watch the password
                 var dbString=result.rows[0].password;
+                console.log(result.rows[0].password);
                 var salt=dbString.split('$')[2];
                 var hashedPassword=hash(password,salt);
                 if(hashedPassword===dbString){
