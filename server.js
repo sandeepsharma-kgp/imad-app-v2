@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
@@ -109,7 +110,7 @@ app.post('/login',function(req,res){
             res.status(500).send(err.toString());
         }else {
             if(result.rows.length===0){
-                res.send(403).send('username/password os invalid');
+                res.status(403).send('username/password os invalid'); 
             } else {
                 //watch the password
                 var dbString=result.rows[0].password;
@@ -118,7 +119,7 @@ app.post('/login',function(req,res){
                 if(hasedPassword===dbString){
                     res.send('credentials correct!!');
                 } else {
-                    res.send(403).send('username/password is invalid!');
+                    res.status(403).send('username/password is invalid!');
                 }
             }
         }
